@@ -1,0 +1,35 @@
+days_of_week = [
+    ('SA', 'Saturday'),
+    ('SU', 'Sunday'),
+    ('MO', 'Monday'),
+    ('TU', 'Tuesday'),
+    ('WE', 'Wednesday'),
+    ('TH', 'Thursday'),
+    ('FR', 'Friday'),
+]
+
+
+egypt_provinces = (
+    ("CA", "Cairo"),
+    ("GI", "Giza"),
+    ("AL", "Alexandria"),
+    ("BE", "Beheira"),
+    ("DA", "Dakahlia"),
+    ("QA", "Qalyubia"),
+    ("SO", "Sohag"),
+    ("QE", "Qena"),
+    ("FA", "Fayoum"),
+    ("MN", "Menofia"),
+    ("SU", "Suez"),
+    ("NV", "New Valley"),
+    ("WG", "Wadi El Gedid"),
+    ("LX", "Luxor"),
+    ("MT", "Matruh"),
+    ("BS", "Bani Suef"),
+    ("PS", "Port Said"),
+    ("SI", "Sinai"),
+    ("KS", "Kafr El Sheikh"),
+    ("DM", "Damietta"),
+    ("RS", "Red Sea"),
+    ("SH", "Sharqia"),
+)

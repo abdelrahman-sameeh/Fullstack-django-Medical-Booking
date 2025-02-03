@@ -33,6 +33,8 @@ class User(AbstractUser):
 
     email = models.EmailField(unique=True, blank=True)
     picture = models.ImageField("pictures", null=True, blank=True)
+    gender = models.CharField(max_length=10, choices=[("M", "Male"), ("F", "Female")], default="M", blank=True)  
+    phone_number = models.CharField(max_length=15, blank=True)
 
     objects = CustomUserManager()
 
