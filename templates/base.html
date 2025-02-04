@@ -1,20 +1,20 @@
 {% load django_bootstrap5 %}  
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
-    
     {% bootstrap_css %}
-    {% block extra_loads %}{% endblock %} 
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
   </head>
   <body>
-    <div class="container mt-5">
-      {% bootstrap_messages %} 
-    </div>
+
+    {% include 'components/toast.html' %}
     {% block content %}{% endblock %} 
     {% bootstrap_javascript %}
+    <script src="{% static 'js/index.js'%}"></script>
+  
   </body>
 </html>

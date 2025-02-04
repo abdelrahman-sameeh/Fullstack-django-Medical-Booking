@@ -1,0 +1,13 @@
+<nav class="d-flex justify-content-between p-3 border-bottom position-sticky top-0">
+  <div class="logo"><img src="" alt=""></div>
+  {% if user.is_authenticated %}
+    <div class="d-flex gap-2 align-items-center">
+      <p class="mb-0" > Welcome {{user}}</p>
+      <form action="auth/logout/" method="get">
+        <button class="btn btn-dark">Logout</button>
+      </form>
+    </div> 
+  {% else %}
+    <a href="/auth/login" class="btn btn-secondary">Login</a>
+  {% endif %}
+</nav>

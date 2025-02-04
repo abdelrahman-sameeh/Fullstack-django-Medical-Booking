@@ -20,3 +20,15 @@ class RegisterForm(forms.ModelForm):
             user.save()
 
         return user
+
+
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['email', 'password']
+
+
+
+class SendResetCodeForm(forms.Form):
+    email = forms.EmailField(max_length=100, required=True)
+

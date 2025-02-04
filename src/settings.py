@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-(f2#w6zngjhjvis-dg)fmedz%8&&zu&6ffho8fat-2ma^-f-k!
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # external packages(apps)
+    'django_bootstrap5',
+    'mailer',
+    # internal apps
     'authentication',
     'medical',
-    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -123,8 +127,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# mail setting
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+if DEBUG:
+    EMAIL_BACKEND = "mailer.backend.DbBackend"
+
+# if not DEBUG:
+#     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+#     EMAIL_HOST = "smtp.example.com"
+#     EMAIL_PORT = 587
+#     EMAIL_USE_TLS = True
+#     EMAIL_HOST_USER = "your_email@example.com"
+#     EMAIL_HOST_PASSWORD = "your_password"

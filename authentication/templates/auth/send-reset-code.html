@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}  
+
+{% block title %}
+Send Reset Code
+{% endblock %}
+
+{% block content %}
+<div class="container w-75 py-2">
+  <div class="border p-4 rounded">
+      <h2>Send Reset Code</h2>
+      <form method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Send" button_class="btn btn-success" %}
+      </form>  
+    </div>
+</div>
+
+{% endblock %}
+
+
