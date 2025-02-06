@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
+from dotenv import load_dotenv
 from pathlib import Path
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(f2#w6zngjhjvis-dg)fmedz%8&&zu&6ffho8fat-2ma^-f-k!'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+DEBUG = True
+ALLOWED_HOSTS = []
+
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -138,15 +144,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # mail setting
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-if DEBUG:
-    EMAIL_BACKEND = "mailer.backend.DbBackend"
+# if DEBUG:
+#     EMAIL_BACKEND = "mailer.backend.DbBackend"
 
-# if not DEBUG:
-#     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-#     EMAIL_HOST = "smtp.example.com"
-#     EMAIL_PORT = 587
-#     EMAIL_USE_TLS = True
-#     EMAIL_HOST_USER = "your_email@example.com"
-#     EMAIL_HOST_PASSWORD = "your_password"
+if not DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = "everything112002@gmail.com"
+    EMAIL_HOST_PASSWORD = "fkkw iyjx huiv lbjr"
+
+
+

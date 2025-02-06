@@ -31,10 +31,16 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
     USERNAME_FIELD = "email"
 
+    password_reset_code = models.CharField(max_length=255, blank=True, null=True)
+    reset_code_created_at = models.DateTimeField(null=True, blank=True)
+
+    
     email = models.EmailField(unique=True, blank=True)
     picture = models.ImageField("pictures", null=True, blank=True)
     gender = models.CharField(max_length=10, choices=[("M", "Male"), ("F", "Female")], default="M", blank=True)  
     phone_number = models.CharField(max_length=15, blank=True)
+
+
 
     objects = CustomUserManager()
 
