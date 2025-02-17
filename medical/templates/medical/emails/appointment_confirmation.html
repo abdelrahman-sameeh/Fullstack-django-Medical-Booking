@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            color: #007bff;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .content p {
+            font-size: 16px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Appointment Confirmation</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{ patient_name }},</p>
+            <p>Your appointment has been successfully booked for <strong>{{ day_of_week }}</strong> from <strong>{{ time_from }}</strong> to <strong>{{ time_to }}</strong>.</p>
+            <p>Thank you for using our service!</p>
+        </div>
+        <div class="footer">
+            <p>If you have any questions, feel free to contact us.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %} 
+
+{% block title %}
+Add New Day
+{% endblock %}
+
+{% block content %}
+{% include 'components/navbar.html' %}
+
+<div class="container">
+
+  <h2 class="fw-bold my-3 text-capitalize">
+    add new day
+  </h2>
+
+  <form method="post" class="form border p-3 rounded">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Add" button_class="btn btn-success w-25" %}
+  </form>  
+
+</div>
+{% endblock %}
+

@@ -74,7 +74,7 @@ class Login(View):
 class Logout(View):
     def get(self, request):
         logout(request)
-        return redirect("login")
+        return redirect("home")
 
 
 class PasswordResetCode(View):

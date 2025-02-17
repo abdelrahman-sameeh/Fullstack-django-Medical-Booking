@@ -2,8 +2,8 @@
   <div class="logo"><img src="" alt=""></div>
   {% if user.is_authenticated %}
     <div class="d-flex gap-2 align-items-center">
-      <p class="mb-0" > Welcome {{user}}</p>
-      <form action="auth/logout/" method="get">
+      <p class="mb-0" > Welcome <strong>{{user}}</strong></p>
+      <form action="/auth/logout/" method="get">
         <button class="btn btn-dark">Logout</button>
       </form>
     </div> 

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %} 
+
+{% block title %}
+  View Booked Days
+{% endblock %}
+
+{% block content %}
+{% include 'components/navbar.html' %}
+
+<div class="container">
+
+  <h3 class="fw-light my-3 text-capitalize">
+    View booked days 
+    {% if booked_days %}
+      in 
+      <strong class="fw-bold">
+        {{ booked_days.0.location.get_government_display }} |
+        {{ booked_days.0.location.details }}
+      </strong>
+
+    {% else %}
+      (No booked days available)
+    {% endif %}
+  </h3>
+
+  {% if booked_days %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Time From</th>
+        <th>Time To</th>
+        <th>Max Appointments</th>
+        <th>Current Appointments</th>
+        <th>Controls</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for day in booked_days %}
+      <tr>
+        <td>{{ day.get_day_of_week_display }}</td>
+        <td>{{ day.time_from }}</td>
+        <td>{{ day.time_to }}</td>
+        <td>{{ day.max_appointments }}</td>
+        <td>{{ day.current_appointments }}</td>
+        <td>
+          <button class="btn btn-dark">
+            Update
+          </button>
+          <button class="btn btn-danger">
+            Delete
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="text-danger">No booked days found.</p>
+  {% endif %}
+</div>
+
+
+</div>
+{% endblock %}
+
